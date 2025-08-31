@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root{
       --bg:#0b1020; --bg2:#0e1328; --panel:#0f172a; --line:#1e293b;
@@ -34,6 +35,7 @@
     .brand{display:flex;align-items:center;gap:.75rem}
     .logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:900;color:#061018;background:conic-gradient(from 0deg,var(--c1),var(--c2),var(--c1));box-shadow:var(--neon-glow);transition:box-shadow 0.3s ease;}
     .logo:hover{box-shadow:0 0 15px rgba(34,211,238,0.8), 0 0 25px rgba(34,211,238,0.6), 0 0 35px rgba(34,211,238,0.4);}
+    nav{display:flex;align-items:center;}
     nav a{color:var(--muted);text-decoration:none;margin-left:1rem;font-weight:700;transition:all 0.3s ease;}
     nav a:hover,nav a:focus{color:var(--c1);text-shadow:var(--neon-glow);}
     .btn{border:1px solid var(--line);background:color-mix(in oklab, var(--panel) 90%, transparent);color:var(--text);padding:.6rem .95rem;border-radius:.9rem;font-weight:700;text-decoration:none;transition:.18s ease;display:inline-flex;align-items:center;gap:.5rem}
@@ -83,7 +85,7 @@
     .proj .thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
     .proj:hover .thumb img{transform:scale(1.1);}
     .proj{transition:.2s ease;position:relative;}
-    .proj::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:18px;padding:2px;background:linear-gradient(45deg, var(--c1), var(--c2), var(--c1));mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 极 0);-webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;opacity:0;transition:opacity 0.3s ease;pointer-events:none;}
+    .proj::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:18px;padding:2px;background:linear-gradient(45deg, var(--c1), var(--c2), var(--c1));mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;opacity:0;transition:opacity 0.3s ease;pointer-events:none;}
     .proj:hover::before{opacity:1;}
     .proj:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(2,6,23,.35);border-color:color-mix(in oklab, var(--c1), var(--line)60%)}
     .helper{font-size:.85rem;color:var(--muted)}
@@ -232,6 +234,163 @@
     /* Neon frame for all containers */
     .neon-frame {position: relative;}
     .neon-frame::before {content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border-radius: 18px; background: linear-gradient(45deg, var(--c1), var(--c2), var(--c1)); z-index: -1; opacity: 0.7; filter: blur(8px);}
+    
+    /* Device mode switcher */
+    .device-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1rem;
+    }
+    
+    .device-btn {
+      background: color-mix(in oklab, var(--panel) 90%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .device-btn:hover {
+      border-color: var(--c1);
+      box-shadow: var(--neon-glow);
+    }
+    
+    .device-btn.active {
+      background: var(--c1);
+      color: #061018;
+      box-shadow: var(--neon-glow);
+    }
+    
+    .device-btn i {
+      font-size: 1rem;
+    }
+    
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Responsive improvements for mobile */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: color-mix(in oklab, var(--bg) 95%, transparent);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--line);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+      }
+      
+      nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      nav a {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        text-align: center;
+        width: 100%;
+      }
+      
+      .device-switcher {
+        margin: 0.5rem 0;
+        justify-content: center;
+      }
+      
+      /* Mobile-specific adjustments */
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .avatar, .info-card-container {
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        aspect-ratio: 1;
+        margin: 0 auto;
+      }
+      
+      .avatar-container {
+        flex-direction: column;
+      }
+      
+      .hero-cta {
+        justify-content: center;
+      }
+      
+      .section-head {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+      
+      .section-head h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+      }
+      
+      .info-icon {
+        display: none;
+      }
+      
+      .info-focus {
+        margin-top: 15px;
+        padding-top: 15px;
+      }
+    }
+    
+    /* Device indicator */
+    .device-indicator {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: color-mix(in oklab, var(--panel) 90%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 100;
+      box-shadow: var(--neon-glow);
+    }
+    
+    .device-indicator i {
+      color: var(--c1);
+    }
   </style>
 </head>
 <body>
@@ -242,13 +401,24 @@
         <div class="logo">ME</div>
         <strong>Eng. Mahmoud Ebrahim Elattar</strong>
       </div>
-      <nav aria-label="Primary">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="mainNav">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <div class="device-switcher">
+          <button class="device-btn active" id="desktopModeBtn" aria-label="Desktop view" title="Desktop View">
+            <i class="fas fa-laptop"></i>
+          </button>
+          <button class="device-btn" id="mobileModeBtn" aria-label="Mobile view" title="Mobile View">
+            <i class="fas fa-mobile-alt"></i>
+          </button>
+        </div>
       </nav>
       <div class="row">
         <button id="mode" class="btn" aria-label="Toggle theme">☀️/🌙</button>
@@ -256,6 +426,12 @@
       </div>
     </div>
   </header>
+
+  <!-- Device indicator -->
+  <div class="device-indicator">
+    <i class="fas fa-desktop" id="deviceIcon"></i>
+    <span id="deviceText">Desktop View</span>
+  </div>
 
   <!-- HERO -->
   <main id="home" class="hero">
@@ -465,7 +641,7 @@
             <img src="https://wallpaperbat.com/img/1437672-sql-for-data-analysis.png" alt="Data Pipeline showcase" onerror="this.style.display='none'"/>
           </div>
           <div class="card-body">
-            <h3>Data Pipeline (Showcase)</h3>
+            <h3>Data Pipeline (Showcase</h3>
             <div class="sub">ETL/ELT design with Python & SQL</div>
             <p>End-to-end pipeline concept: ingestion → cleaning → modeling → analytics. Clear monitoring & handoff.</p>
             
@@ -555,6 +731,38 @@
     document.addEventListener('keyup', (e) => {
       if (e.key === 'Tab') document.body.classList.add('show-focus-outlines');
     });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Detect if user is on mobile device
+    function isMobileDevice() {
+      return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    // Set initial view based on device
+    if (isMobileDevice()) {
+      document.getElementById('deviceIcon').className = 'fas fa-mobile-alt';
+      document.getElementById('deviceText').textContent = 'Mobile View';
+    } else {
+      document.getElementById('deviceIcon').className = 'fas fa-desktop';
+      document.getElementById('deviceText').textContent = 'Desktop View';
+    }
   </script>
 </body>
 </html>
