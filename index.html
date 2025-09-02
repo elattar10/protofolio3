@@ -1,768 +1,1348 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eng. Mahmoud Ebrahim Elattar | Data Engineer</title>
-  <meta name="description" content="Portfolio of Eng. Mahmoud Ebrahim Elattar — Data Engineer." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root{
-      --bg:#0b1020; --bg2:#0e1328; --panel:#0f172a; --line:#1e293b;
-      --text:#e5e7eb; --muted:#9aa5b8; --c1:#22d3ee; --c2:#a78bfa; --ok:#34d399; --err:#ef4444;
-      --neon-glow: 0 0 10px rgba(34, 211, 238, 0.7), 0 0 20px rgba(34, 211, 238, 0.5), 0 0 30px rgba(34, 211, 238, 0.3);
-    }
-    .light{
-      --bg:#ffffff; --bg2:#f6f8fb; --panel:#ffffff; --line:#e5e7eb; --text:#0f172a; --muted:#64748b; --c1:#0ea5e9; --c2:#8b5cf6;
-      --neon-glow: 0 0 10px rgba(14, 165, 233, 0.5), 0 0 15px rgba(14, 165, 233, 0.3);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:Inter,system-ui,Arial,sans-serif; color:var(--text);
-      background:
-        radial-gradient(900px 600px at 120% -10%, rgba(167,139,250,.18), transparent 60%),
-        radial-gradient(900px 600px at -20% 20%, rgba(34,211,238,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 60%, var(--bg) 100%);
-      line-height:1.65;
-    }
-    .container{width:min(1120px,92%);margin:0 auto}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:color-mix(in oklab, var(--bg) 80%, transparent);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
-    .brand{display:flex;align-items:center;gap:.75rem}
-    .logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:900;color:#061018;background:conic-gradient(from 0deg,var(--c1),var(--c2),var(--c1));box-shadow:var(--neon-glow);transition:box-shadow 0.3s ease;}
-    .logo:hover{box-shadow:0 0 15px rgba(34,211,238,0.8), 0 0 25px rgba(34,211,238,0.6), 0 0 35px rgba(34,211,238,0.4);}
-    nav{display:flex;align-items:center;}
-    nav a{color:var(--muted);text-decoration:none;margin-left:1rem;font-weight:700;transition:all 0.3s ease;}
-    nav a:hover,nav a:focus{color:var(--c1);text-shadow:var(--neon-glow);}
-    .btn{border:1px solid var(--line);background:color-mix(in oklab, var(--panel) 90%, transparent);color:var(--text);padding:.6rem .95rem;border-radius:.9rem;font-weight:700;text-decoration:none;transition:.18s ease;display:inline-flex;align-items:center;gap:.5rem}
-    .btn:hover{transform:translateY(-2px);border-color:var(--c1);box-shadow:var(--neon-glow);}
-    .btn-primary{border:none;background:linear-gradient(135deg,var(--c1),var(--c2));color:#061018;box-shadow:0 10px 28px rgba(34,211,238,.30),0 5px 16px rgba(139,92,246,.22)}
-    .btn-primary:hover{box-shadow:var(--neon-glow), 0 10px 28px rgba(34,211,238,.30),0 5px 16px rgba(139,92,246,.22);}
-    .hero{padding:84px 0 52px}
-    .hero-wrap{display:grid;gap:2rem;grid-template-columns:1.1fr .9fr;align-items:center}
-    @media (max-width:950px){.hero-wrap{grid-template-columns:1fr}}
-    .kicker{color:var(--c1);font-weight:900;letter-spacing:.22em;font-size:.78rem;text-transform:uppercase;text-shadow:0 0 5px rgba(34,211,238,0.5);}
-    h1{font-size:clamp(2rem,4.8vw,3.3rem);line-height:1.08;margin:.6rem 0 1rem}
-    .lead{color:var(--muted);font-size:clamp(1.02rem,1.8vw,1.16rem);max-width:65ch}
-    .hero-cta{display:flex;gap:.7rem;margin-top:1.1rem;flex-wrap:wrap}
-    .row{display:flex;gap:1rem;flex-wrap:wrap}
-    .avatar-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    @media (min-width:951px) {
-      .avatar-container {
-        flex-direction: row;
-        align-items: stretch;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eng. Mahmoud Ebrahim Elattar | Data Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Eng. Mahmoud Ebrahim Elattar — Data Engineer."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg2: #0e1328;
+        --panel: #0f172a;
+        --line: #1e293b;
+        --text: #e5e7eb;
+        --muted: #9aa5b8;
+        --c1: #22d3ee;
+        --c2: #a78bfa;
+        --ok: #34d399;
+        --err: #ef4444;
+        --neon-glow: 0 0 10px rgba(34, 211, 238, 0.7),
+          0 0 20px rgba(34, 211, 238, 0.5), 0 0 30px rgba(34, 211, 238, 0.3);
       }
-    }
-    .avatar{width:340px;height:340px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg, rgba(34,211,238,.2), rgba(167,139,250,.2));box-shadow:var(--neon-glow);transition:all 0.3s ease;}
-    .avatar:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(34,211,238,0.8), 0 0 30px rgba(34,211,238,0.6), 0 0 40px rgba(34,211,238,0.4);}
-    .avatar img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
-    .avatar:hover img{transform:scale(1.05);}
-    section{padding:62px 0}
-    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .section-head h2{margin:0;font-size:clamp(1.5rem,3.5vw,2.1rem);position:relative;display:inline-block;}
-    .section-head h2::after{content:'';position:absolute;bottom:-5px;left:0;width:100%;height:2px;background:linear-gradient(90deg, var(--c1), var(--c2));box-shadow:var(--neon-glow);}
-    .sub{color:var(--muted);font-size:.95rem}
-    .about{background:color-mix(in oklab, var(--bg) 92%, var(--panel));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:all 0.3s ease;}
-    .card:hover{transform:translateY(-5px);border-color:var(--c1);box-shadow:var(--neon-glow);}
-    .card-body{padding:1.1rem}
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem}
-    .chip{border:1px solid var(--line);background:color-mix(in oklab, var(--panel) 85%, transparent);padding:.46rem .7rem;border-radius:999px;font-weight:700;transition:all 0.3s ease;}
-    .chip:hover{background:var(--c1);color:#061018;border-color:var(--c1);box-shadow:var(--neon-glow);transform:translateY(-2px);}
-    .cards{display:grid;gap:1.2rem;grid-template-columns:repeat(3,1fr)}
-    @media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:720px){.cards{grid-template-columns:1fr}}
-    .proj .thumb{aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg, rgba(34,211,238,.18), rgba(167,139,250,.18));overflow:hidden;}
-    .proj .thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
-    .proj:hover .thumb img{transform:scale(1.1);}
-    .proj{transition:.2s ease;position:relative;}
-    .proj::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:18px;padding:2px;background:linear-gradient(45deg, var(--c1), var(--c2), var(--c1));mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;opacity:0;transition:opacity 0.3s ease;pointer-events:none;}
-    .proj:hover::before{opacity:1;}
-    .proj:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(2,6,23,.35);border-color:color-mix(in oklab, var(--c1), var(--line)60%)}
-    .helper{font-size:.85rem;color:var(--muted)}
-    .status{font-weight:700;margin-top:.4rem}
-    .status.ok{color:var(--ok)} .status.err{color:var(--err)}
-    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);text-align:center}
-    .grid2{display:grid;gap:1.1rem;grid-template-columns:1.1fr .9fr}
-    @media (max-width:900px){.grid2{grid-template-columns:1fr}}
-    /* cursor icon styling */
-    .cursor-icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
-    /* New styles for project details */
-    .project-details{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
-    .detail-item{margin-bottom:.8rem}
-    .detail-title{font-weight:700;color:var(--c1);margin-bottom:.2rem;text-shadow:0 0 5px rgba(34,211,238,0.3);}
-    .detail-content{color:var(--muted);font-size:.9rem}
-    .tech-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
-    .tech-tag{background:rgba(34,211,238,.15);color:var(--c1);padding:.2rem .6rem;border-radius:999px;font-size:.75rem;font-weight:600;transition:all 0.3s ease;}
-    .tech-tag:hover{background:var(--c1);color:#061018;box-shadow:var(--neon-glow);transform:translateY(-2px);}
-    
-    /* IMPROVED INFO CARD STYLES */
-    .info-card-container {
-      display: flex;
-      flex-direction: column;
-      width: 340px;
-      height: 340px;
-      background: linear-gradient(145deg, color-mix(in oklab, var(--panel) 90%, transparent), color-mix(in oklab, var(--panel) 95%, transparent));
-      border-radius: 26px;
-      padding: 1.5px;
-      position: relative;
-      box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.2),
-        var(--neon-glow);
-      overflow: hidden;
-    }
-    
-    .info-card-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, var(--c1), transparent 40%, transparent 60%, var(--c2));
-      opacity: 0.1;
-      pointer-events: none;
-    }
-    
-    .info-card-container::after {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, var(--c1), var(--c2), var(--c1));
-      border-radius: 28px;
-      z-index: -1;
-      animation: borderFlow 4s linear infinite;
-      filter: blur(10px);
-      opacity: 0.7;
-    }
-    
-    @keyframes borderFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    .info-card {
-      background: color-mix(in oklab, var(--panel) 92%, transparent);
-      border-radius: 24px;
-      padding: 24px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      backdrop-filter: blur(5px);
-      border: 1px solid color-mix(in oklab, var(--line) 80%, transparent);
-    }
-    
-    .info-grid {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px 16px;
-      align-items: start;
-    }
-    
-    .info-icon {
-      width: 20px;
-      height: 20px;
-      color: var(--c1);
-      filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.5));
-    }
-    
-    .info-label {
-      font-weight: 700;
-      color: var(--c1);
-      text-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
-      font-size: 0.9rem;
-    }
-    
-    .info-value {
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-    
-    .info-email {
-      color: var(--c1);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    .info-email:hover {
-      text-shadow: var(--neon-glow);
-      color: var(--c2);
-    }
-    
-    .info-focus {
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      position: relative;
-    }
-    
-    .info-focus::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 25%;
-      right: 25%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--c1), transparent);
-    }
-    
-    .info-focus-text {
-      color: var(--c1);
-      font-weight: 700;
-      display: block;
-      margin-top: 4px;
-      text-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
-    }
-    
-    /* Neon frame for all containers */
-    .neon-frame {position: relative;}
-    .neon-frame::before {content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border-radius: 18px; background: linear-gradient(45deg, var(--c1), var(--c2), var(--c1)); z-index: -1; opacity: 0.7; filter: blur(8px);}
-    
-    /* Device mode switcher */
-    .device-switcher {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-left: 1rem;
-    }
-    
-    .device-btn {
-      background: color-mix(in oklab, var(--panel) 90%, transparent);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 0.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .device-btn:hover {
-      border-color: var(--c1);
-      box-shadow: var(--neon-glow);
-    }
-    
-    .device-btn.active {
-      background: var(--c1);
-      color: #061018;
-      box-shadow: var(--neon-glow);
-    }
-    
-    .device-btn i {
-      font-size: 1rem;
-    }
-    
-    /* Mobile menu */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    
-    /* Responsive improvements for mobile */
-    @media (max-width: 768px) {
-      .mobile-menu-btn {
-        display: block;
+      .light {
+        --bg: #ffffff;
+        --bg2: #f6f8fb;
+        --panel: #ffffff;
+        --line: #e5e7eb;
+        --text: #0f172a;
+        --muted: #64748b;
+        --c1: #0ea5e9;
+        --c2: #8b5cf6;
+        --neon-glow: 0 0 10px rgba(14, 165, 233, 0.5),
+          0 0 15px rgba(14, 165, 233, 0.3);
       }
-      
-      nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: color-mix(in oklab, var(--bg) 95%, transparent);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 1rem;
-        border-bottom: 1px solid var(--line);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 100;
+      * {
+        box-sizing: border-box;
       }
-      
-      nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+      html {
+        scroll-behavior: smooth;
       }
-      
-      nav a {
-        margin: 0.5rem 0;
-        padding: 0.5rem;
-        text-align: center;
-        width: 100%;
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+            900px 600px at 120% -10%,
+            rgba(167, 139, 250, 0.18),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 600px at -20% 20%,
+            rgba(34, 211, 238, 0.18),
+            transparent 60%
+          ),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg2) 60%, var(--bg) 100%);
+        line-height: 1.65;
       }
-      
-      .device-switcher {
-        margin: 0.5rem 0;
-        justify-content: center;
-      }
-      
-      /* Mobile-specific adjustments */
-      .hero-wrap {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      
-      .avatar, .info-card-container {
-        width: 100%;
-        max-width: 340px;
-        height: auto;
-        aspect-ratio: 1;
+      .container {
+        width: min(1120px, 92%);
         margin: 0 auto;
       }
-      
-      .avatar-container {
-        flex-direction: column;
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background: color-mix(in oklab, var(--bg) 80%, transparent);
+        border-bottom: 1px solid var(--line);
       }
-      
-      .hero-cta {
-        justify-content: center;
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 0;
       }
-      
-      .section-head {
-        flex-direction: column;
-        text-align: center;
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        color: #061018;
+        background: conic-gradient(from 0deg, var(--c1), var(--c2), var(--c1));
+        box-shadow: var(--neon-glow);
+        transition: box-shadow 0.3s ease;
+      }
+      .logo:hover {
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.8),
+          0 0 25px rgba(34, 211, 238, 0.6), 0 0 35px rgba(34, 211, 238, 0.4);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 1rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+      nav a:hover,
+      nav a:focus {
+        color: var(--c1);
+        text-shadow: var(--neon-glow);
+      }
+      .btn {
+        border: 1px solid var(--line);
+        background: color-mix(in oklab, var(--panel) 90%, transparent);
+        color: var(--text);
+        padding: 0.6rem 0.95rem;
+        border-radius: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.18s ease;
+        display: inline-flex;
+        align-items: center;
         gap: 0.5rem;
       }
-      
-      .section-head h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
+      .btn:hover {
+        transform: translateY(-2px);
+        border-color: var(--c1);
+        box-shadow: var(--neon-glow);
       }
-      
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
+      .btn-primary {
+        border: none;
+        background: linear-gradient(135deg, var(--c1), var(--c2));
+        color: #061018;
+        box-shadow: 0 10px 28px rgba(34, 211, 238, 0.3),
+          0 5px 16px rgba(139, 92, 246, 0.22);
+      }
+      .btn-primary:hover {
+        box-shadow: var(--neon-glow), 0 10px 28px rgba(34, 211, 238, 0.3),
+          0 5px 16px rgba(139, 92, 246, 0.22);
+      }
+      .hero {
+        padding: 84px 0 52px;
+      }
+      .hero-wrap {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+      }
+      @media (max-width: 950px) {
+        .hero-wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+      .kicker {
+        color: var(--c1);
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        text-shadow: 0 0 5px rgba(34, 211, 238, 0.5);
+      }
+      h1 {
+        font-size: clamp(2rem, 4.8vw, 3.3rem);
+        line-height: 1.08;
+        margin: 0.6rem 0 1rem;
+      }
+      .lead {
+        color: var(--muted);
+        font-size: clamp(1.02rem, 1.8vw, 1.16rem);
+        max-width: 65ch;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 0.7rem;
+        margin-top: 1.1rem;
+        flex-wrap: wrap;
+      }
+      .row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .avatar-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      @media (min-width: 951px) {
+        .avatar-container {
+          flex-direction: row;
+          align-items: stretch;
+        }
+      }
+      .avatar {
+        width: 340px;
+        height: 340px;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          135deg,
+          rgba(34, 211, 238, 0.2),
+          rgba(167, 139, 250, 0.2)
+        );
+        box-shadow: var(--neon-glow);
+        transition: all 0.3s ease;
+      }
+      .avatar:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(34, 211, 238, 0.8),
+          0 0 30px rgba(34, 211, 238, 0.6), 0 0 40px rgba(34, 211, 238, 0.4);
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .avatar:hover img {
+        transform: scale(1.05);
+      }
+      section {
+        padding: 62px 0;
+      }
+      .section-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+        position: relative;
+        display: inline-block;
+      }
+      .section-head h2::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--c1), var(--c2));
+        box-shadow: var(--neon-glow);
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .about {
+        background: color-mix(in oklab, var(--bg) 92%, var(--panel));
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--c1);
+        box-shadow: var(--neon-glow);
+      }
+      .card-body {
+        padding: 1.1rem;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        background: color-mix(in oklab, var(--panel) 85%, transparent);
+        padding: 0.46rem 0.7rem;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+      .chip:hover {
+        background: var(--c1);
+        color: #061018;
+        border-color: var(--c1);
+        box-shadow: var(--neon-glow);
+        transform: translateY(-2px);
+      }
+      .cards {
+        display: grid;
+        gap: 1.2rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 1100px) {
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 720px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+      .proj .thumb {
+        aspect-ratio: 16/9;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 211, 238, 0.18),
+          rgba(167, 139, 250, 0.18)
+        );
+        overflow: hidden;
+      }
+      .proj .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .proj:hover .thumb img {
+        transform: scale(1.1);
+      }
+      .proj {
+        transition: 0.2s ease;
+        position: relative;
+      }
+      .proj::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 18px;
+        padding: 2px;
+        background: linear-gradient(45deg, var(--c1), var(--c2), var(--c1));
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .proj:hover::before {
+        opacity: 1;
+      }
+      .proj:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 32px rgba(2, 6, 23, 0.35);
+        border-color: color-mix(in oklab, var(--c1), var(--line) 60%);
+      }
+      .helper {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .status {
+        font-weight: 700;
+        margin-top: 0.4rem;
+      }
+      .status.ok {
+        color: var(--ok);
+      }
+      .status.err {
+        color: var(--err);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 26px 0;
+        color: var(--muted);
         text-align: center;
       }
-      
+      .grid2 {
+        display: grid;
+        gap: 1.1rem;
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+      @media (max-width: 900px) {
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* cursor icon styling */
+      .cursor-icon {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      /* New styles for project details */
+      .project-details {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+      }
+      .detail-item {
+        margin-bottom: 0.8rem;
+      }
+      .detail-title {
+        font-weight: 700;
+        color: var(--c1);
+        margin-bottom: 0.2rem;
+        text-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
+      }
+      .detail-content {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.5rem;
+      }
+      .tech-tag {
+        background: rgba(34, 211, 238, 0.15);
+        color: var(--c1);
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .tech-tag:hover {
+        background: var(--c1);
+        color: #061018;
+        box-shadow: var(--neon-glow);
+        transform: translateY(-2px);
+      }
+
+      /* IMPROVED INFO CARD STYLES */
+      .info-card-container {
+        display: flex;
+        flex-direction: column;
+        width: 340px;
+        height: 340px;
+        background: linear-gradient(
+          145deg,
+          color-mix(in oklab, var(--panel) 90%, transparent),
+          color-mix(in oklab, var(--panel) 95%, transparent)
+        );
+        border-radius: 26px;
+        padding: 1.5px;
+        position: relative;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), var(--neon-glow);
+        overflow: hidden;
+      }
+
+      .info-card-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          var(--c1),
+          transparent 40%,
+          transparent 60%,
+          var(--c2)
+        );
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
+      .info-card-container::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, var(--c1), var(--c2), var(--c1));
+        border-radius: 28px;
+        z-index: -1;
+        animation: borderFlow 4s linear infinite;
+        filter: blur(10px);
+        opacity: 0.7;
+      }
+
+      @keyframes borderFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .info-card {
+        background: color-mix(in oklab, var(--panel) 92%, transparent);
+        border-radius: 24px;
+        padding: 24px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        backdrop-filter: blur(5px);
+        border: 1px solid color-mix(in oklab, var(--line) 80%, transparent);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 12px 16px;
+        align-items: start;
+      }
+
       .info-icon {
-        display: none;
+        width: 20px;
+        height: 20px;
+        color: var(--c1);
+        filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.5));
       }
-      
+
+      .info-label {
+        font-weight: 700;
+        color: var(--c1);
+        text-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
+        font-size: 0.9rem;
+      }
+
+      .info-value {
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+
+      .info-email {
+        color: var(--c1);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .info-email:hover {
+        text-shadow: var(--neon-glow);
+        color: var(--c2);
+      }
+
       .info-focus {
-        margin-top: 15px;
-        padding-top: 15px;
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+        position: relative;
       }
-    }
-    
-    /* Device indicator */
-    .device-indicator {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: color-mix(in oklab, var(--panel) 90%, transparent);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 100;
-      box-shadow: var(--neon-glow);
-    }
-    
-    .device-indicator i {
-      color: var(--c1);
-    }
-  </style>
-</head>
-<body>
-  <!-- NAV -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">ME</div>
-        <strong>Eng. Mahmoud Ebrahim Elattar</strong>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav id="mainNav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <div class="device-switcher">
-          <button class="device-btn active" id="desktopModeBtn" aria-label="Desktop view" title="Desktop View">
-            <i class="fas fa-laptop"></i>
-          </button>
-          <button class="device-btn" id="mobileModeBtn" aria-label="Mobile view" title="Mobile View">
-            <i class="fas fa-mobile-alt"></i>
-          </button>
+
+      .info-focus::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 25%;
+        right: 25%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--c1), transparent);
+      }
+
+      .info-focus-text {
+        color: var(--c1);
+        font-weight: 700;
+        display: block;
+        margin-top: 4px;
+        text-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
+      }
+
+      /* Neon frame for all containers */
+      .neon-frame {
+        position: relative;
+      }
+      .neon-frame::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 18px;
+        background: linear-gradient(45deg, var(--c1), var(--c2), var(--c1));
+        z-index: -1;
+        opacity: 0.7;
+        filter: blur(8px);
+      }
+
+      /* Device mode switcher */
+      .device-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      .device-btn {
+        background: color-mix(in oklab, var(--panel) 90%, transparent);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .device-btn:hover {
+        border-color: var(--c1);
+        box-shadow: var(--neon-glow);
+      }
+
+      .device-btn.active {
+        background: var(--c1);
+        color: #061018;
+        box-shadow: var(--neon-glow);
+      }
+
+      .device-btn i {
+        font-size: 1rem;
+      }
+
+      /* Mobile menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--muted);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Responsive improvements for mobile */
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        nav {
+          position: fixed;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: color-mix(in oklab, var(--bg) 95%, transparent);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          padding: 1rem;
+          border-bottom: 1px solid var(--line);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 100;
+        }
+
+        nav.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        nav a {
+          margin: 0.5rem 0;
+          padding: 0.5rem;
+          text-align: center;
+          width: 100%;
+        }
+
+        .device-switcher {
+          margin: 0.5rem 0;
+          justify-content: center;
+        }
+
+        /* Mobile-specific adjustments */
+        .hero-wrap {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .avatar,
+        .info-card-container {
+          width: 100%;
+          max-width: 340px;
+          height: auto;
+          aspect-ratio: 1;
+          margin: 0 auto;
+        }
+
+        .avatar-container {
+          flex-direction: column;
+        }
+
+        .hero-cta {
+          justify-content: center;
+        }
+
+        .section-head {
+          flex-direction: column;
+          text-align: center;
+          gap: 0.5rem;
+        }
+
+        .section-head h2::after {
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80%;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .info-icon {
+          display: none;
+        }
+
+        .info-focus {
+          margin-top: 15px;
+          padding-top: 15px;
+        }
+        .row {
+          flex-direction: column;
+        }
+        .cards {
+          grid-template-columns: 1fr !important; /* single column on mobile */
+        }
+        header .nav {
+          flex-wrap: wrap !important;
+        }
+        header .row {
+          width: 100% !important;
+          flex-direction: row !important;
+          justify-content: space-between !important;
+          margin-top: 20px !important;
+        }
+      }
+
+      /* Device indicator */
+      .device-indicator {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: color-mix(in oklab, var(--panel) 90%, transparent);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        z-index: 100;
+        box-shadow: var(--neon-glow);
+      }
+
+      .device-indicator i {
+        color: var(--c1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">ME</div>
+          <strong>Eng. Mahmoud Ebrahim Elattar</strong>
         </div>
-      </nav>
-      <div class="row">
-        <button id="mode" class="btn" aria-label="Toggle theme">☀️/🌙</button>
-        <a class="btn btn-primary" href="#contact">Hire Me</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Device indicator -->
-  <div class="device-indicator">
-    <i class="fas fa-desktop" id="deviceIcon"></i>
-    <span id="deviceText">Desktop View</span>
-  </div>
-
-  <!-- HERO -->
-  <main id="home" class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <div class="kicker">Data Engineer</div>
-        <h1>Designing dependable data systems—clean models, fast pipelines, real insights.</h1>
-        <p class="lead">
-          I build practical data solutions with Python & SQL, from ingestion to analytics. Clear schemas, predictable pipelines, and results that teams can trust.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#projects">See Projects</a>
-          <a class="btn" href="#skills">View Skills</a>
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Toggle menu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <div class="device-switcher">
+            <button
+              class="device-btn active"
+              id="desktopModeBtn"
+              aria-label="Desktop view"
+              title="Desktop View"
+            >
+              <i class="fas fa-laptop"></i>
+            </button>
+            <button
+              class="device-btn"
+              id="mobileModeBtn"
+              aria-label="Mobile view"
+              title="Mobile View"
+            >
+              <i class="fas fa-mobile-alt"></i>
+            </button>
+          </div>
+        </nav>
+        <div class="row">
+          <button id="mode" class="btn" aria-label="Toggle theme">☀️/🌙</button>
+          <a class="btn btn-primary" href="#contact">Hire Me</a>
         </div>
       </div>
-      <div class="avatar-container">
-        <div class="avatar" aria-label="profile">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQHWeQwlMy6dpA/profile-displayphoto-crop_800_800/B4EZjki71eGcAM-/0/1756181021771?e=1759363200&v=beta&t=kaOEyWRMz7goXoKergfkKqH4CFDBWoJbT-SIIQDcrkQ" alt="Mahmoud Elattar portrait"/>
-        </div>
-        
-        <!-- IMPROVED INFO CARD -->
-        <div class="info-card-container neon-frame">
-          <div class="info-card">
-            <div class="info-grid">
-              <!-- Location -->
-              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <div>
-                <div class="info-label">Based in</div>
-                <div class="info-value">Cairo, Egypt</div>
-              </div>
-              
-              <!-- Role -->
-              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <div>
-                <div class="info-label">Role</div>
-                <div class="info-value">Data Engineer</div>
-              </div>
-              
-              <!-- Email -->
-              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <div>
-                <div class="info-label">Email</div>
-                <a href="mailto:elattarmahmoud96@gmail.com" class="info-value info-email">elattarmahmoud96@gmail.com</a>
-              </div>
-            </div>
-            
-            <div class="info-focus">
-              Focus
-              <span class="info-focus-text">Data Modeling • ETL/ELT • Python • SQL</span>
-            </div>
+    </header>
+
+    <!-- Device indicator -->
+    <div class="device-indicator">
+      <i class="fas fa-desktop" id="deviceIcon"></i>
+      <span id="deviceText">Desktop View</span>
+    </div>
+
+    <!-- HERO -->
+    <main id="home" class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="kicker">Data Engineer</div>
+          <h1>
+            Designing dependable data systems—clean models, fast pipelines, real
+            insights.
+          </h1>
+          <p class="lead">
+            I build practical data solutions with Python & SQL, from ingestion
+            to analytics. Clear schemas, predictable pipelines, and results that
+            teams can trust.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">See Projects</a>
+            <a class="btn" href="#skills">View Skills</a>
           </div>
         </div>
-      </div>
-    </div>
-  </main>
+        <div class="avatar-container">
+          <div class="avatar" aria-label="profile">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D4E03AQHWeQwlMy6dpA/profile-displayphoto-crop_800_800/B4EZjki71eGcAM-/0/1756181021771?e=1759363200&v=beta&t=kaOEyWRMz7goXoKergfkKqH4CFDBWoJbT-SIIQDcrkQ"
+              alt="Mahmoud Elattar portrait"
+            />
+          </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="section-head">
-        <h2>About</h2><div class="sub">Who I am & what I do</div>
-      </div>
-      <div class="row">
-        <article class="card neon-frame" style="flex:2">
-          <div class="card-body">
-            <p>I’m Mahmoud, a Data Engineer focused on reliable data systems. I enjoy designing schemas, writing efficient SQL and Python, and building pipelines that are easy to reason about and maintain.</p>
-            <p>Projects include a university student data platform and an ATM system prototype, plus a data-pipeline showcase. I value clarity, correctness, and performance.</p>
-          </div>
-        </article>
-        <article class="card neon-frame" style="flex:1">
-          <div class="card-body">
-            <ul>
-              <li><strong>Location:</strong> Cairo, Egypt</li>
-              <li><strong>Languages:</strong> English (Very Good), German (Very Good)</li>
-              <li><strong>Availability:</strong> Part-time / Remote</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+          <!-- IMPROVED INFO CARD -->
+          <div class="info-card-container neon-frame">
+            <div class="info-card">
+              <div class="info-grid">
+                <!-- Location -->
+                <svg
+                  class="info-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <div class="info-label">Based in</div>
+                  <div class="info-value">Cairo, Egypt</div>
+                </div>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="container">
-      <div class="section-head"><h2>Education</h2><div class="sub">Academic background & relevant training</div></div>
-      <div class="cards" style="grid-template-columns:repeat(2,1fr)">
-        <article class="card neon-frame">
-          <div class="card-body">
-            <h3>Zagazig University — Faculty of Computers and Information</h3>
-            <p class="sub"><em>Bachelor’s Degree — 3rd Year Student</em></p>
-            <p>Currently enrolled as a third-year student in Computer Science at Zagazig University, focusing on data systems and engineering. Actively building skills in database design, data pipelines, and cloud-based analytics.</p>
-          </div>
-        </article>
-        <article class="card neon-frame">
-          <div class="card-body">
-            <h3>Certifications & Training</h3>
-            <p><strong>Octopus Academy</strong><br>Completed <em>Fundamentals of Programming with C++</em>.</p>
-            <p><strong>Digital Egypt Pioneers Initiative (DEPI) — Round 3</strong><br>Data Engineering Track: hands-on experience in SQL, Python, and Microsoft Azure.</p>
-            <p class="sub">Relevant skills acquired: SQL, Python, Azure, Data Modeling, ETL/ELT Pipelines, Data Warehousing, Big Data fundamentals (Hadoop & Spark basics), and basic DevOps awareness for data workflows.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+                <!-- Role -->
+                <svg
+                  class="info-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <div>
+                  <div class="info-label">Role</div>
+                  <div class="info-value">Data Engineer</div>
+                </div>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-head"><h2>Skills</h2><div class="sub">Your stack at a glance</div></div>
-      <div class="chips" aria-label="Skill chips">
-        <span class="chip">C++ (Very Good)</span>
-        <span class="chip">Python (Very Good)</span>
-        <span class="chip">SQL (Intermediate)</span>
-        <span class="chip">Azure (Intermediate)</span>
-        <span class="chip">Data Modeling</span>
-        <span class="chip">ETL/ELT</span>
-        <span class="chip">Data Warehousing</span>
-        <span class="chip">Big Data Basics</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-head"><h2>Projects</h2><div class="sub">A selection of work</div></div>
-      <div class="cards">
-        <article class="card proj neon-frame">
-          <div class="thumb">
-            <img src="http://image.shutterstock.com/z/stock-photo-a-photo-of-an-atm-machine-847885.jpg" alt="ATM System prototype" onerror="this.style.display='none'"/>
-          </div>
-          <div class="card-body">
-            <h3>ATM System Prototype</h3>
-            <div class="sub">Transaction flow & account operations</div>
-            <p>Core ATM features (auth, balance, withdraw/deposit) with data-integrity & logging focus.</p>
-            
-            <div class="project-details">
-              <div class="detail-item">
-                <div class="detail-title">Technologies Used</div>
-                <div class="detail-content">C++, OOP, File Handling, Data Validation</div>
-                <div class="tech-tags">
-                  <span class="tech-tag">C++</span>
-                  <span class="tech-tag">OOP</span>
-                  <span class="tech-tag">File I/O</span>
+                <!-- Email -->
+                <svg
+                  class="info-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <div>
+                  <div class="info-label">Email</div>
+                  <a
+                    href="mailto:elattarmahmoud96@gmail.com"
+                    class="info-value info-email"
+                    >elattarmahmoud96@gmail.com</a
+                  >
                 </div>
               </div>
-              
-              <div class="detail-item">
-                <div class="detail-title">Goal</div>
-                <div class="detail-content">Build a secure system for managing banking transactions with focus on data integrity and logging</div>
-              </div>
-              
-              <div class="detail-item">
-                <div class="detail-title">Achievement</div>
-                <div class="detail-content">Developed a complete system supporting authentication, balance checking, withdrawal, deposit, with a secure operation logging system</div>
+
+              <div class="info-focus">
+                Focus
+                <span class="info-focus-text"
+                  >Data Modeling • ETL/ELT • Python • SQL</span
+                >
               </div>
             </div>
           </div>
-        </article>
+        </div>
+      </div>
+    </main>
 
-        <article class="card proj neon-frame">
-          <div class="thumb">
-            <img src="https://studyatuniversity.com/wp-content/uploads/2024/06/how-to-get-scholarship-in-harvard-university-agl.jpg" alt="University Student Information System" onerror="this.style.display='none'"/>
-          </div>
-          <div class="card-body">
-            <h3>University Student Data System</h3>
-            <div class="sub">Data ingestion & management for student records</div>
-            <p>Schema design, validations, and query-friendly layout for admissions, grades, and records.</p>
-            
-            <div class="project-details">
-              <div class="detail-item">
-                <div class="detail-title">Technologies Used</div>
-                <div class="detail-content">SQL, Python, Pandas, Data Modeling, Normalization</div>
-                <div class="tech-tags">
-                  <span class="tech-tag">SQL</span>
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Pandas</span>
-                  <span class="tech-tag">Data Modeling</span>
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <div class="sub">Who I am & what I do</div>
+        </div>
+        <div class="row">
+          <article class="card neon-frame" style="flex: 2">
+            <div class="card-body">
+              <p>
+                I’m Mahmoud, a Data Engineer focused on reliable data systems. I
+                enjoy designing schemas, writing efficient SQL and Python, and
+                building pipelines that are easy to reason about and maintain.
+              </p>
+              <p>
+                Projects include a university student data platform and an ATM
+                system prototype, plus a data-pipeline showcase. I value
+                clarity, correctness, and performance.
+              </p>
+            </div>
+          </article>
+          <article class="card neon-frame" style="flex: 1">
+            <div class="card-body">
+              <ul>
+                <li><strong>Location:</strong> Cairo, Egypt</li>
+                <li>
+                  <strong>Languages:</strong> English (Very Good), German (Very
+                  Good)
+                </li>
+                <li><strong>Availability:</strong> Part-time / Remote</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <h2>Education</h2>
+          <div class="sub">Academic background & relevant training</div>
+        </div>
+        <div class="cards" style="grid-template-columns: repeat(2, 1fr)">
+          <article class="card neon-frame">
+            <div class="card-body">
+              <h3>Zagazig University — Faculty of Computers and Information</h3>
+              <p class="sub"><em>Bachelor’s Degree — 3rd Year Student</em></p>
+              <p>
+                Currently enrolled as a third-year student in Computer Science
+                at Zagazig University, focusing on data systems and engineering.
+                Actively building skills in database design, data pipelines, and
+                cloud-based analytics.
+              </p>
+            </div>
+          </article>
+          <article class="card neon-frame">
+            <div class="card-body">
+              <h3>Certifications & Training</h3>
+              <p>
+                <strong>Octopus Academy</strong><br />Completed
+                <em>Fundamentals of Programming with C++</em>.
+              </p>
+              <p>
+                <strong
+                  >Digital Egypt Pioneers Initiative (DEPI) — Round 3</strong
+                ><br />Data Engineering Track: hands-on experience in SQL,
+                Python, and Microsoft Azure.
+              </p>
+              <p class="sub">
+                Relevant skills acquired: SQL, Python, Azure, Data Modeling,
+                ETL/ELT Pipelines, Data Warehousing, Big Data fundamentals
+                (Hadoop & Spark basics), and basic DevOps awareness for data
+                workflows.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <div class="sub">Your stack at a glance</div>
+        </div>
+        <div class="chips" aria-label="Skill chips">
+          <span class="chip">C++ (Very Good)</span>
+          <span class="chip">Python (Very Good)</span>
+          <span class="chip">SQL (Intermediate)</span>
+          <span class="chip">Azure (Intermediate)</span>
+          <span class="chip">Data Modeling</span>
+          <span class="chip">ETL/ELT</span>
+          <span class="chip">Data Warehousing</span>
+          <span class="chip">Big Data Basics</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <div class="sub">A selection of work</div>
+        </div>
+        <div class="cards">
+          <article class="card proj neon-frame">
+            <div class="thumb">
+              <img
+                src="http://image.shutterstock.com/z/stock-photo-a-photo-of-an-atm-machine-847885.jpg"
+                alt="ATM System prototype"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="card-body">
+              <h3>ATM System Prototype</h3>
+              <div class="sub">Transaction flow & account operations</div>
+              <p>
+                Core ATM features (auth, balance, withdraw/deposit) with
+                data-integrity & logging focus.
+              </p>
+
+              <div class="project-details">
+                <div class="detail-item">
+                  <div class="detail-title">Technologies Used</div>
+                  <div class="detail-content">
+                    C++, OOP, File Handling, Data Validation
+                  </div>
+                  <div class="tech-tags">
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">File I/O</span>
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-title">Goal</div>
+                  <div class="detail-content">
+                    Build a secure system for managing banking transactions with
+                    focus on data integrity and logging
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-title">Achievement</div>
+                  <div class="detail-content">
+                    Developed a complete system supporting authentication,
+                    balance checking, withdrawal, deposit, with a secure
+                    operation logging system
+                  </div>
                 </div>
               </div>
-              
-              <div class="detail-item">
-                <div class="detail-title">Goal</div>
-                <div class="detail-content">Create a centralized system for managing student data that facilitates querying and reporting</div>
-              </div>
-              
-              <div class="detail-item">
-                <div class="detail-title">Achievement</div>
-                <div class="detail-content">Designed a comprehensive data model, built data import interfaces, developed an efficient query system</div>
-              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card proj neon-frame">
-          <div class="thumb">
-            <img src="https://wallpaperbat.com/img/1437672-sql-for-data-analysis.png" alt="Data Pipeline showcase" onerror="this.style.display='none'"/>
-          </div>
-          <div class="card-body">
-            <h3>Data Pipeline (Showcase</h3>
-            <div class="sub">ETL/ELT design with Python & SQL</div>
-            <p>End-to-end pipeline concept: ingestion → cleaning → modeling → analytics. Clear monitoring & handoff.</p>
-            
-            <div class="project-details">
-              <div class="detail-item">
-                <div class="detail-title">Technologies Used</div>
-                <div class="detail-content">Python, SQL, ETL Processes, Data Cleaning, Azure Data Services</div>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">SQL</span>
-                  <span class="tech-tag">ETL</span>
-                  <span class="tech-tag">Azure</span>
+          <article class="card proj neon-frame">
+            <div class="thumb">
+              <img
+                src="https://studyatuniversity.com/wp-content/uploads/2024/06/how-to-get-scholarship-in-harvard-university-agl.jpg"
+                alt="University Student Information System"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="card-body">
+              <h3>University Student Data System</h3>
+              <div class="sub">
+                Data ingestion & management for student records
+              </div>
+              <p>
+                Schema design, validations, and query-friendly layout for
+                admissions, grades, and records.
+              </p>
+
+              <div class="project-details">
+                <div class="detail-item">
+                  <div class="detail-title">Technologies Used</div>
+                  <div class="detail-content">
+                    SQL, Python, Pandas, Data Modeling, Normalization
+                  </div>
+                  <div class="tech-tags">
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Data Modeling</span>
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-title">Goal</div>
+                  <div class="detail-content">
+                    Create a centralized system for managing student data that
+                    facilitates querying and reporting
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-title">Achievement</div>
+                  <div class="detail-content">
+                    Designed a comprehensive data model, built data import
+                    interfaces, developed an efficient query system
+                  </div>
                 </div>
               </div>
-              
-              <div class="detail-item">
-                <div class="detail-title">Goal</div>
-                <div class="detail-content">Build a complete data pipeline from ingestion to final analytics</div>
-              </div>
-              
-              <div class="detail-item">
-                <div class="detail-title">Achievement</div>
-                <div class="detail-content">Developed a complete ETL/ELT process, implemented quality monitoring, created detailed technical documentation</div>
+            </div>
+          </article>
+
+          <article class="card proj neon-frame">
+            <div class="thumb">
+              <img
+                src="https://wallpaperbat.com/img/1437672-sql-for-data-analysis.png"
+                alt="Data Pipeline showcase"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="card-body">
+              <h3>Data Pipeline (Showcase</h3>
+              <div class="sub">ETL/ELT design with Python & SQL</div>
+              <p>
+                End-to-end pipeline concept: ingestion → cleaning → modeling →
+                analytics. Clear monitoring & handoff.
+              </p>
+
+              <div class="project-details">
+                <div class="detail-item">
+                  <div class="detail-title">Technologies Used</div>
+                  <div class="detail-content">
+                    Python, SQL, ETL Processes, Data Cleaning, Azure Data
+                    Services
+                  </div>
+                  <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">ETL</span>
+                    <span class="tech-tag">Azure</span>
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-title">Goal</div>
+                  <div class="detail-content">
+                    Build a complete data pipeline from ingestion to final
+                    analytics
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-title">Achievement</div>
+                  <div class="detail-content">
+                    Developed a complete ETL/ELT process, implemented quality
+                    monitoring, created detailed technical documentation
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="about">
-    <div class="container">
-      <div class="section-head"><h2>Contact</h2><div class="sub">Let’s connect</div></div>
-      <div class="grid2">
-        <article class="card neon-frame">
-          <div class="card-body" style="text-align:center">
-            <h3>Send me a Message</h3>
-            <p class="sub">Click the button below to email me directly.</p>
-            <a class="btn btn-primary" 
-               href="mailto:elattarmahmoud96@gmail.com?subject=Message%20for%20Eng.%20Mahmoud%20Ebrahim%20Elattar&body=Hello%20Mahmoud%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding%20...%0A%0ABest%20regards%2C%0A" 
-               style="font-size:1.05rem;display:inline-flex;align-items:center;gap:.6rem;margin-top:1rem">
-               <!-- SVG cursor icon -->
-               <svg class="cursor-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                 <path d="M3 3l7.5 13L11 14l6 7-1-9L21 6 3 3z" fill="#061018" opacity="0.9"/>
-               </svg>
-               Click to Send
-            </a>
-            <div class="helper" style="margin-top:.7rem">This will open your mail client with a prefilled message.</div>
-          </div>
-        </article>
-        <article class="card neon-frame">
-          <div class="card-body">
-            <h3>Elsewhere</h3>
-            <p class="sub">Find me on the web:</p>
-            <p class="row">
-              <a class="btn" href="https://www.instagram.com/elattar_mahmoud10/" target="_blank" rel="noopener">Instagram</a>
-              <a class="btn" href="https://www.linkedin.com/in/mahmoud-elattar-227438283/" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="btn" href="https://github.com/elattar10" target="_blank" rel="noopener">GitHub</a>
-            </p>
-            <p>Email: <a href="mailto:elattarmahmoud96@gmail.com" style="color:var(--c1)">elattarmahmoud96@gmail.com</a></p>
-          </div>
-        </article>
+    <!-- CONTACT -->
+    <section id="contact" class="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <div class="sub">Let’s connect</div>
+        </div>
+        <div class="grid2">
+          <article class="card neon-frame">
+            <div class="card-body" style="text-align: center">
+              <h3>Send me a Message</h3>
+              <p class="sub">Click the button below to email me directly.</p>
+              <a
+                class="btn btn-primary"
+                href="mailto:elattarmahmoud96@gmail.com?subject=Message%20for%20Eng.%20Mahmoud%20Ebrahim%20Elattar&body=Hello%20Mahmoud%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding%20...%0A%0ABest%20regards%2C%0A"
+                style="
+                  font-size: 1.05rem;
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  margin-top: 1rem;
+                "
+              >
+                <!-- SVG cursor icon -->
+                <svg
+                  class="cursor-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M3 3l7.5 13L11 14l6 7-1-9L21 6 3 3z"
+                    fill="#061018"
+                    opacity="0.9"
+                  />
+                </svg>
+                Click to Send
+              </a>
+              <div class="helper" style="margin-top: 0.7rem">
+                This will open your mail client with a prefilled message.
+              </div>
+            </div>
+          </article>
+          <article class="card neon-frame">
+            <div class="card-body">
+              <h3>Elsewhere</h3>
+              <p class="sub">Find me on the web:</p>
+              <p class="row">
+                <a
+                  class="btn"
+                  href="https://www.instagram.com/elattar_mahmoud10/"
+                  target="_blank"
+                  rel="noopener"
+                  >Instagram</a
+                >
+                <a
+                  class="btn"
+                  href="https://www.linkedin.com/in/mahmoud-elattar-227438283/"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >
+                <a
+                  class="btn"
+                  href="https://github.com/elattar10"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub</a
+                >
+              </p>
+              <p>
+                Email:
+                <a
+                  href="mailto:elattarmahmoud96@gmail.com"
+                  style="color: var(--c1)"
+                  >elattarmahmoud96@gmail.com</a
+                >
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">© 2025 Eng. Mahmoud Ebrahim Elattar — All Rights Reserved</div>
-  </footer>
+    <footer>
+      <div class="container">
+        © 2025 Eng. Mahmoud Ebrahim Elattar — All Rights Reserved
+      </div>
+    </footer>
 
-  <script>
-    // Theme toggle (simple)
-    const modeBtn = document.getElementById('mode');
-    modeBtn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('light');
-    });
-
-    // Ensure profile image loads; if not, fallback to placeholder
-    const avatarImg = document.querySelector('.avatar img');
-    avatarImg.addEventListener('error', () => {
-      avatarImg.src = 'https://via.placeholder.com/400x400.png?text=ME';
-    });
-
-    // Add simple focus-visible accessibility for keyboard users
-    document.addEventListener('keyup', (e) => {
-      if (e.key === 'Tab') document.body.classList.add('show-focus-outlines');
-    });
-
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mainNav = document.getElementById('mainNav');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
-      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    });
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    <script>
+      // Theme toggle (simple)
+      const modeBtn = document.getElementById("mode");
+      modeBtn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("light");
       });
-    });
 
-    // Detect if user is on mobile device
-    function isMobileDevice() {
-      return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    }
+      // Ensure profile image loads; if not, fallback to placeholder
+      const avatarImg = document.querySelector(".avatar img");
+      avatarImg.addEventListener("error", () => {
+        avatarImg.src = "https://via.placeholder.com/400x400.png?text=ME";
+      });
 
-    // Set initial view based on device
-    if (isMobileDevice()) {
-      document.getElementById('deviceIcon').className = 'fas fa-mobile-alt';
-      document.getElementById('deviceText').textContent = 'Mobile View';
-    } else {
-      document.getElementById('deviceIcon').className = 'fas fa-desktop';
-      document.getElementById('deviceText').textContent = 'Desktop View';
-    }
-  </script>
-</body>
+      // Add simple focus-visible accessibility for keyboard users
+      document.addEventListener("keyup", (e) => {
+        if (e.key === "Tab") document.body.classList.add("show-focus-outlines");
+      });
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mainNav = document.getElementById("mainNav");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+        mobileMenuBtn.innerHTML = mainNav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Detect if user is on mobile device
+      function isMobileDevice() {
+        return (
+          typeof window.orientation !== "undefined" ||
+          navigator.userAgent.indexOf("IEMobile") !== -1
+        );
+      }
+
+      // Set initial view based on device
+      if (isMobileDevice()) {
+        document.getElementById("deviceIcon").className = "fas fa-mobile-alt";
+        document.getElementById("deviceText").textContent = "Mobile View";
+      } else {
+        document.getElementById("deviceIcon").className = "fas fa-desktop";
+        document.getElementById("deviceText").textContent = "Desktop View";
+      }
+    </script>
+  </body>
 </html>
